@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useDebouncedCallback } from 'use-debounce'
 
 import { AppScreen } from '@/components/AppScreen'
-import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 import { PhoneFrame } from '@/components/PhoneFrame'
 import WorkoutScreen from '@/images/screens/workout.png'
@@ -18,31 +17,27 @@ const MotionAppScreenBody = motion(AppScreen.Body)
 
 const features = [
   {
-    name: 'Track Workouts',
+    name: 'Workouts',
     description:
-      'For every friend you invite to Pocket, you get insider notifications 5 seconds sooner. And it’s 10 seconds if you invite an insider.',
-    icon: DeviceUserIcon,
+      'Create your own, or use a pre-built workout plan to get started. We’ll track your progress and help you reach your goals. You will get recommended weights based off past performance to make sure you are always working out hard, and progressing.',
     screen: WorkoutMotionScreen,
   },
   {
-    name: 'Track Macros',
+    name: 'Calories and Macros',
     description:
-      'Get a push notification every time we find out something that’s going to lower the share price on your holdings so you can sell before the information hits the public markets.',
-    icon: DeviceNotificationIcon,
+      'Get recommended calories and macros, and a fast easy way to log all of your food. You can search by name, or scan the food barcode (for free) to quickly find your food. Our database has over 1.5 million verified foods.',
     screen: EatMotionScreen,
   },
   {
-    name: 'Track Supplements',
+    name: 'Supplements',
     description:
-      'We hide your stock purchases behind thousands of anonymous trading accounts, so suspicious activity can never be traced back to you.',
-    icon: DeviceTouchIcon,
+      'Tell us what supplements you are taking, and when you are taking them. We’ll remind you when it’s time to take your next dose.',
     screen: SupplementMotionScreen,
   },
   {
-    name: 'Track Body',
+    name: 'Body',
     description:
-      'We hide your stock purchases behind thousands of anonymous trading accounts, so suspicious activity can never be traced back to you.',
-    icon: DeviceTouchIcon,
+      'Record your weight, blood pressure, and body measurements. We’ll track your progress and help you reach your goals. Get body fat estimates based off the US Navy method, so you can see how your body is changing even if your weight is not. Also Premium users can upload progress photos to see how they are improving.',
     screen: BodyMotionScreen,
   },
 ]
@@ -244,26 +239,23 @@ function FeaturesDesktop() {
         {features.map((feature, featureIndex) => (
           <div
             key={feature.name}
-            className="relative rounded-2xl transition-colors hover:bg-gray-800/30"
+            className="relative rounded-2xl bg-card transition-colors hover:bg-primary-dark/30"
           >
             {featureIndex === selectedIndex && (
               <motion.div
                 layoutId="activeBackground"
-                className="absolute inset-0 bg-gray-800"
+                className="absolute inset-0 bg-primary-dark"
                 initial={{ borderRadius: 16 }}
               />
             )}
             <div className="relative z-10 p-8">
-              <feature.icon className="h-8 w-8" />
-              <h3 className="text-white mt-6 text-lg font-semibold">
-                <Tab className="text-left [&:not(:focus-visible)]:focus:outline-none">
+              <h3 className="text-white text-lg font-semibold">
+                <Tab className="text-left text-secondary [&:not(:focus-visible)]:focus:outline-none">
                   <span className="absolute inset-0 rounded-2xl" />
                   {feature.name}
                 </Tab>
               </h3>
-              <p className="mt-2 text-sm text-gray-400">
-                {feature.description}
-              </p>
+              <p className="mt-2 text-sm text-ternary">{feature.description}</p>
             </div>
           </div>
         ))}
@@ -341,16 +333,15 @@ function FeaturesMobile() {
             ref={(ref) => (slideRefs.current[featureIndex] = ref)}
             className="w-full flex-none snap-center px-4 sm:px-6"
           >
-            <div className="relative transform overflow-hidden rounded-2xl bg-gray-800 px-5 py-6">
+            <div className="relative transform overflow-hidden rounded-2xl bg-primary-dark px-5 py-6">
               <PhoneFrame className="relative mx-auto w-full max-w-[366px]">
                 <feature.screen />
               </PhoneFrame>
-              <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
-                <feature.icon className="h-8 w-8" />
-                <h3 className="text-white mt-6 text-sm font-semibold sm:text-lg">
+              <div className="absolute inset-x-0 bottom-0 bg-primary-dark/95 p-6 backdrop-blur sm:p-10">
+                <h3 className="text-white mt-6 text-sm font-semibold text-secondary sm:text-lg">
                   {feature.name}
                 </h3>
-                <p className="mt-2 text-sm text-gray-400">
+                <p className="mt-2 text-sm text-ternary">
                   {feature.description}
                 </p>
               </div>
@@ -365,7 +356,9 @@ function FeaturesMobile() {
             key={featureIndex}
             className={clsx(
               'relative h-0.5 w-4 rounded-full',
-              featureIndex === activeIndex ? 'bg-gray-300' : 'bg-gray-500'
+              featureIndex === activeIndex
+                ? 'bg-secondary-light'
+                : 'bg-secondary'
             )}
             aria-label={`Go to slide ${featureIndex + 1}`}
             onClick={() => {
@@ -388,18 +381,17 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Features for investing all your money"
-      className="bg-gray-900 py-20 sm:py-32"
+      className="bg-background py-20 sm:py-32"
     >
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl">
-          <h2 className="text-white text-3xl font-medium tracking-tight">
+          <h2 className="text-white text-3xl font-medium tracking-tight text-secondary">
             Every feature you need to win. Try it for yourself.
           </h2>
-          <p className="mt-2 text-lg text-gray-400">
-            Pocket was built for investors like you who play by their own rules
-            and aren’t going to let SEC regulations get in the way of their
-            dreams. If other investing tools are afraid to build it, Pocket has
-            it.
+          <p className="mt-2 text-lg text-ternary">
+            WorkoutTrack was built to be the best, all inclusive fitness app.
+            You can track your workouts, log your meals, make sure you're taking
+            your supplements, and record how your body changes over time.
           </p>
         </div>
       </Container>
