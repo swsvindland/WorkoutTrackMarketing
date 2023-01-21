@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { Popover } from '@headlessui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLinks } from '@/components/NavLinks'
@@ -101,19 +100,10 @@ export function Header() {
                             <MobileNavLink href="#features">
                               Features
                             </MobileNavLink>
-                            <MobileNavLink href="#reviews">
-                              Reviews
-                            </MobileNavLink>
                             <MobileNavLink href="#pricing">
                               Pricing
                             </MobileNavLink>
                             <MobileNavLink href="#faqs">FAQs</MobileNavLink>
-                          </div>
-                          <div className="mt-8 flex flex-col gap-4">
-                            <Button href="/login" variant="outline">
-                              Log in
-                            </Button>
-                            <Button href="#">Download the app</Button>
                           </div>
                         </Popover.Panel>
                       </>
