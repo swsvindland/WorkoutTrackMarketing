@@ -1,11 +1,12 @@
 import { FC } from 'react';
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { AppleAppStoreLink } from './AppleAppStoreLink';
 import { GooglePlayLink } from './GooglePlayLink';
+import Home from '../images/screens/home.png';
+import Image from 'next/image';
 
 export const Hero: FC = () => {
     return (
-        <div className="bg-background pt-10 sm:pt-16 lg:overflow-hidden lg:pt-8 lg:pb-14">
+        <section className="bg-background pt-10 sm:pt-16 lg:overflow-hidden lg:pt-8 lg:pb-14">
             <div className="mx-auto max-w-7xl lg:px-8">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-8">
                     <div className="mx-auto max-w-md px-6 sm:max-w-2xl sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
@@ -27,18 +28,16 @@ export const Hero: FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-12 -mb-16 sm:-mb-48 lg:relative lg:m-0">
-                        <div className="mx-auto max-w-md px-6 sm:max-w-2xl lg:max-w-none lg:px-0">
-                            {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
-                            <img
-                                className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                                src="https://tailwindui.com/img/component-images/cloud-illustration-indigo-400.svg"
-                                alt=""
-                            />
-                        </div>
+                    <div className="mx-auto max-w-md px-6 sm:max-w-2xl lg:max-w-none lg:px-0">
+                        <Image
+                            className="w-full lg:h-full lg:w-auto lg:max-w-none"
+                            src={Home}
+                            height={500}
+                            alt=""
+                        />
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
