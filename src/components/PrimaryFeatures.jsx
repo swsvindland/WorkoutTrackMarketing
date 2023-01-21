@@ -255,7 +255,7 @@ function FeaturesDesktop() {
             )}
             <div className="relative z-10 p-8">
               <feature.icon className="h-8 w-8" />
-              <h3 className="mt-6 text-lg font-semibold text-white">
+              <h3 className="text-white mt-6 text-lg font-semibold">
                 <Tab className="text-left [&:not(:focus-visible)]:focus:outline-none">
                   <span className="absolute inset-0 rounded-2xl" />
                   {feature.name}
@@ -269,9 +269,6 @@ function FeaturesDesktop() {
         ))}
       </Tab.List>
       <div className="relative col-span-6">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <CircleBackground color="#13B5C8" className="animate-spin-slower" />
-        </div>
         <PhoneFrame className="z-10 mx-auto w-full max-w-[366px]">
           <Tab.Panels as={Fragment}>
             <AnimatePresence
@@ -345,18 +342,12 @@ function FeaturesMobile() {
             className="w-full flex-none snap-center px-4 sm:px-6"
           >
             <div className="relative transform overflow-hidden rounded-2xl bg-gray-800 px-5 py-6">
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <CircleBackground
-                  color="#13B5C8"
-                  className={featureIndex % 2 === 1 ? 'rotate-180' : undefined}
-                />
-              </div>
               <PhoneFrame className="relative mx-auto w-full max-w-[366px]">
                 <feature.screen />
               </PhoneFrame>
               <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
                 <feature.icon className="h-8 w-8" />
-                <h3 className="mt-6 text-sm font-semibold text-white sm:text-lg">
+                <h3 className="text-white mt-6 text-sm font-semibold sm:text-lg">
                   {feature.name}
                 </h3>
                 <p className="mt-2 text-sm text-gray-400">
@@ -401,7 +392,7 @@ export function PrimaryFeatures() {
     >
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl">
-          <h2 className="text-3xl font-medium tracking-tight text-white">
+          <h2 className="text-white text-3xl font-medium tracking-tight">
             Every feature you need to win. Try it for yourself.
           </h2>
           <p className="mt-2 text-lg text-gray-400">
