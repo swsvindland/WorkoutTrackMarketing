@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Hero } from '../components/Hero';
 
 export default function Home() {
     return (
@@ -11,7 +12,7 @@ export default function Home() {
                 />
             </Head>
             <main>
-                <h1>WorkoutTrack</h1>
+                <Hero />
             </main>
         </>
     );
