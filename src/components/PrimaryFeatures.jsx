@@ -24,25 +24,32 @@ const MotionAppScreenBody = motion(AppScreen.Body)
 
 const features = [
   {
-    name: 'Invite friends for better returns',
+    name: 'Track Workouts',
     description:
       'For every friend you invite to Pocket, you get insider notifications 5 seconds sooner. And it’s 10 seconds if you invite an insider.',
     icon: DeviceUserIcon,
     screen: InviteScreen,
   },
   {
-    name: 'Notifications on stock dips',
+    name: 'Track Macros',
     description:
       'Get a push notification every time we find out something that’s going to lower the share price on your holdings so you can sell before the information hits the public markets.',
     icon: DeviceNotificationIcon,
     screen: StocksScreen,
   },
   {
-    name: 'Invest what you want',
+    name: 'Track Supplements',
     description:
       'We hide your stock purchases behind thousands of anonymous trading accounts, so suspicious activity can never be traced back to you.',
     icon: DeviceTouchIcon,
     screen: InvestScreen,
+  },
+  {
+    name: 'Track Body',
+    description:
+      'We hide your stock purchases behind thousands of anonymous trading accounts, so suspicious activity can never be traced back to you.',
+    icon: DeviceTouchIcon,
+    screen: InviteScreen,
   },
 ]
 
@@ -137,7 +144,6 @@ const bodyVariantBackwards = {
   scale: 0.8,
   zIndex: 0,
   filter: 'blur(4px)',
-  zIndex: 0,
   transition: { duration: 0.4 },
 }
 
