@@ -103,7 +103,6 @@ export function Header() {
                             <MobileNavLink href="#pricing">
                               Pricing
                             </MobileNavLink>
-                            <MobileNavLink href="#faqs">FAQs</MobileNavLink>
                           </div>
                         </Popover.Panel>
                       </>

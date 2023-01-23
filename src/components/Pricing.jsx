@@ -1,10 +1,7 @@
 import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
-
-import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import { Logomark } from '@/components/Logo'
 
 const plans = [
   {
@@ -12,37 +9,29 @@ const plans = [
     featured: false,
     price: { Monthly: '$0', Annually: '$0' },
     description:
-      'You’re new to investing but want to do it right. Get started for free.',
-    button: {
-      label: 'Get started for free',
-      href: '/register',
-    },
+      "You're just getting started. Track your workouts and count calories for free.",
     features: [
-      'Commission-free trading',
-      'Multi-layered encryption',
-      'One tip every day',
-      'Invest up to $1,500 each month',
+      'Ad Supported',
+      'Free Workout Templates',
+      'Calorie and Macro Tracking',
+      'Supplement Tracking',
+      'Record weight, body measurements, and blood pressure',
     ],
-    logomarkClassName: 'fill-gray-300',
   },
   {
     name: 'Premium',
     featured: false,
     price: { Monthly: '$2.99', Annually: '$29.99' },
     description:
-      'You’ve been investing for a while. Invest more and grow your wealth faster.',
-    button: {
-      label: 'Subscribe',
-      href: '/register',
-    },
+      'You’ve been working out for a while. Upgrade to Premium to get more workouts and features.',
     features: [
-      'Commission-free trading',
-      'Multi-layered encryption',
-      'One tip every hour',
-      'Invest up to $15,000 each month',
-      'Basic transaction anonymization',
+      'Ad Free',
+      'Premium Workout Templates',
+      'Calorie and Macro Tracking',
+      'Supplement Tracking',
+      'Record weight, body measurements, and blood pressure',
+      'Upload Progress Photos',
     ],
-    logomarkClassName: 'fill-gray-500',
   },
 ]
 
@@ -90,8 +79,7 @@ function Plan({
           featured ? 'text-white' : 'text-gray-900'
         )}
       >
-        <Logomark className={clsx('h-6 w-6 flex-none', logomarkClassName)} />
-        <span className="ml-4">{name}</span>
+        <span className="text-lg">{name}</span>
       </h3>
       <p
         className={clsx(
@@ -157,14 +145,6 @@ function Plan({
           ))}
         </ul>
       </div>
-      <Button
-        href={button.href}
-        color={featured ? 'cyan' : 'gray'}
-        className="mt-6"
-        aria-label={`Get started with the ${name} plan for ${price}`}
-      >
-        {button.label}
-      </Button>
     </section>
   )
 }
@@ -182,16 +162,11 @@ export function Pricing() {
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="pricing-title"
-            className="text-3xl font-medium tracking-tight text-gray-900"
+            className="text-3xl font-medium tracking-tight text-background"
           >
-            Flat pricing, no management fees.
+            Pricing Plans
           </h2>
-          <p className="mt-2 text-lg text-gray-600">
-            Whether you’re one person trying to get ahead or a big firm trying
-            to take over the world, we’ve got a plan for you.
-          </p>
         </div>
-
         <div className="mt-8 flex justify-center">
           <div className="relative">
             <RadioGroup
@@ -204,7 +179,7 @@ export function Pricing() {
                   key={period}
                   value={period}
                   className={clsx(
-                    'cursor-pointer border border-gray-300 py-[calc(theme(spacing.2)-1px)] px-[calc(theme(spacing.3)-1px)] text-sm text-gray-700 outline-2 outline-offset-2 transition-colors hover:border-gray-400',
+                    'cursor-pointer border border-gray-300 py-[calc(theme(spacing.2)-1px)] px-[calc(theme(spacing.3)-1px)] text-sm text-primary-dark outline-2 outline-offset-2 transition-colors hover:border-gray-400',
                     period === 'Monthly'
                       ? 'rounded-l-lg'
                       : '-ml-px rounded-r-lg'
@@ -217,7 +192,7 @@ export function Pricing() {
             <div
               aria-hidden="true"
               className={clsx(
-                'pointer-events-none absolute inset-0 z-10 grid grid-cols-2 overflow-hidden rounded-lg bg-cyan-500 transition-all duration-300',
+                'pointer-events-none absolute inset-0 z-10 grid grid-cols-2 overflow-hidden rounded-lg bg-primary transition-all duration-300',
                 activePeriod === 'Monthly'
                   ? '[clip-path:inset(0_50%_0_0)]'
                   : '[clip-path:inset(0_0_0_calc(50%-1px))]'
@@ -227,7 +202,7 @@ export function Pricing() {
                 <div
                   key={period}
                   className={clsx(
-                    'py-2 text-center text-sm font-semibold text-white [&:not(:focus-visible)]:focus:outline-none',
+                    'py-2 text-center text-sm font-semibold text-secondary [&:not(:focus-visible)]:focus:outline-none',
                     period === 'Annually' && '-ml-px'
                   )}
                 >
