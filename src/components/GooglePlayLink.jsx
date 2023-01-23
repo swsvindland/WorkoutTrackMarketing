@@ -4,12 +4,12 @@ import clsx from 'clsx'
 export function GooglePlayLink({ color = 'black' }) {
   return (
     <Link
-      href="#"
+      href="https://play.google.com/store/apps/details?id=com.svindland.fitness"
       aria-label="Download on the Google Play Store"
       className={clsx(
         'rounded-lg transition-colors',
         color === 'black'
-          ? 'bg-gray-800 text-white hover:bg-gray-900'
+          ? 'text-white bg-gray-800 hover:bg-gray-900'
           : 'bg-white text-gray-900 hover:bg-gray-50'
       )}
     >
