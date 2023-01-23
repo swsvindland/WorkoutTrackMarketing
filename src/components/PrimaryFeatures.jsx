@@ -311,9 +311,9 @@ export function PrimaryFeatures() {
             Every feature you need to win. Try it for yourself.
           </h2>
           <p className="mt-2 text-lg text-ternary">
-            WorkoutTrack was built to be the best, all inclusive fitness app.
-            You can track your workouts, log your meals, make sure you're taking
-            your supplements, and record how your body changes over time.
+            {
+              "WorkoutTrack was built to be the best, all inclusive fitness app. You can track your workouts, log your meals, make sure you're taking your supplements, and record how your body changes over time."
+            }
           </p>
         </div>
       </Container>

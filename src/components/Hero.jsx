@@ -11,7 +11,7 @@ function AppDemo() {
   return (
     <AppScreen>
       <AppScreen.Body>
-        <Image src={HomeScreen} />
+        <Image src={HomeScreen} alt="" />
       </AppScreen.Body>
     </AppScreen>
   )
