@@ -1,12 +1,4 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyD7L8snXRZRuL376a3twd1Ezr_NLSGhJSg',
   authDomain: 'workouttrackmarketing.firebaseapp.com',
   projectId: 'workouttrackmarketing',
@@ -15,6 +7,3 @@ const firebaseConfig = {
   appId: '1:875131768427:web:a3d3c6dd5daa7983c9ab2e',
   measurementId: 'G-6Y0BKEDD3H',
 };
-
-const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
