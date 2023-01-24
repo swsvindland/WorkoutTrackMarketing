@@ -11,7 +11,7 @@ const oswald = Oswald({
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
-      analytics();
+      analytics.app.automaticDataCollectionEnabled = true;
     }
   }, []);
 
