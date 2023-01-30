@@ -3,7 +3,8 @@ import 'focus-visible';
 import { Oswald } from '@next/font/google';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import * as ReactGA from 'react-ga';
+import { getAnalytics, isSupported } from 'firebase/analytics';
+import { initializeApp } from 'firebase/app';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -13,12 +14,13 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    ReactGA.initialize('G-6Y0BKEDD3H');
+    try {
+      const app = initializeApp(firebaseConfig);
+      isSupported().then((yes) => (yes ? getAnalytics(app) : null));
+    } catch (err) {
+      console.error('Firebase initialization error', err.stack);
+    }
   }, []);
-
-  useEffect(() => {
-    ReactGA.pageview(router.pathname);
-  }, [router.pathname]);
 
   return (
     <div className={oswald.className}>

@@ -1,11 +1,15 @@
-import Link from 'next/link'
-import clsx from 'clsx'
+import Link from 'next/link';
+import clsx from 'clsx';
+import { logEvent } from '@/utils/firebase';
 
 export function GooglePlayLink({ color = 'black' }) {
   return (
     <Link
       href="https://play.google.com/store/apps/details?id=com.svindland.fitness"
       aria-label="Download on the Google Play Store"
+      onClick={() => {
+        logEvent('google_play_link_clicked');
+      }}
       className={clsx(
         'rounded-lg transition-colors',
         color === 'black'
@@ -66,5 +70,5 @@ export function GooglePlayLink({ color = 'black' }) {
         />
       </svg>
     </Link>
-  )
+  );
 }

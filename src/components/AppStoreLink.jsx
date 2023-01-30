@@ -1,10 +1,14 @@
-import Link from 'next/link'
-import clsx from 'clsx'
+import Link from 'next/link';
+import clsx from 'clsx';
+import { logEvent } from '@/utils/firebase';
 
 export function AppStoreLink({ color = 'black' }) {
   return (
     <Link
       href="https://apps.apple.com/us/app/workouttrack-calorie-counter/id6443969488"
+      onClick={() => {
+        logEvent('apple_app_store_click');
+      }}
       aria-label="Download on the App Store"
       className={clsx(
         'rounded-lg transition-colors',
@@ -20,5 +24,5 @@ export function AppStoreLink({ color = 'black' }) {
         />
       </svg>
     </Link>
-  )
+  );
 }
