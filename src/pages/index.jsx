@@ -1,11 +1,19 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Pricing } from '@/components/Pricing';
 import { PrimaryFeatures } from '@/components/PrimaryFeatures';
+import { install, gtag } from 'ga-gtag';
 
 export default function Home() {
+  useEffect(() => {
+    install('AW-11043651276');
+    gtag('js', new Date());
+    gtag('config', 'AW-11043651276');
+  }, []);
+
   return (
     <>
       <Head>

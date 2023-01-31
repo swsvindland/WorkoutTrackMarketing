@@ -1,14 +1,20 @@
-import Link from 'next/link';
 import clsx from 'clsx';
-import { logEvent } from '@/utils/firebase';
+import { getAnalytics, logEvent } from 'firebase/analytics';
+import { gtag } from 'ga-gtag';
 
 export function GooglePlayLink({ color = 'black' }) {
   return (
-    <Link
-      href="https://play.google.com/store/apps/details?id=com.svindland.fitness"
+    <button
       aria-label="Download on the Google Play Store"
       onClick={() => {
-        logEvent('google_play_link_clicked');
+        logEvent(getAnalytics(), 'google_play_link_clicked');
+        gtag('event', 'conversion', {
+          send_to: 'AW-11043651276/TdWACLKqooUYEMz9gpIp',
+        });
+        window.open(
+          'https://play.google.com/store/apps/details?id=com.svindland.fitness',
+          '_blank'
+        );
       }}
       className={clsx(
         'rounded-lg transition-colors',
@@ -69,6 +75,6 @@ export function GooglePlayLink({ color = 'black' }) {
           strokeWidth=".26666"
         />
       </svg>
-    </Link>
+    </button>
   );
 }

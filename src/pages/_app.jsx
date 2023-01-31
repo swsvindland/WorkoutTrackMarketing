@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '@/utils/firebase';
 
 const oswald = Oswald({
   subsets: ['latin'],
