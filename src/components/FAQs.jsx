@@ -15,6 +15,12 @@ const faqs = [
     links: [],
   },
   {
+    question: 'Is this project open source?',
+    answer:
+      'Not right now. While this is in active development and gaining users, and hopefully on its way to profitability, I am not open sourcing it. If this project becomes unmaintained, or I decide to stop working on it, I will open source it.',
+    links: [],
+  },
+  {
     question: 'How do I change my password?',
     answer:
       'You can change your password by clicking the User Icon in the top right, and then clicking settings. From there you can change your password. You can also logout, and click the forgot password button and a reset email will be sent to you.',
