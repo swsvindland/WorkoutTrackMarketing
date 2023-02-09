@@ -1,11 +1,11 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import { AppScreen } from '@/components/AppScreen'
-import { AppStoreLink } from '@/components/AppStoreLink'
-import { Container } from '@/components/Container'
-import { PhoneFrame } from '@/components/PhoneFrame'
-import { GooglePlayLink } from '@/components/GooglePlayLink'
-import HomeScreen from '@/images/screens/home.png'
+import { AppScreen } from '@/components/AppScreen';
+import { AppStoreLink } from '@/components/AppStoreLink';
+import { Container } from '@/components/Container';
+import { PhoneFrame } from '@/components/PhoneFrame';
+import { GooglePlayLink } from '@/components/GooglePlayLink';
+import HomeScreen from '@/images/screens/home.png';
 
 function AppDemo() {
   return (
@@ -14,7 +14,7 @@ function AppDemo() {
         <Image src={HomeScreen} alt="" />
       </AppScreen.Body>
     </AppScreen>
-  )
+  );
 }
 
 export function Hero() {
@@ -24,15 +24,16 @@ export function Hero() {
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
             <h1 className="text-4xl font-medium tracking-tight text-background">
-              Become Your Best Self
+              Get Into the Best Shape of Your Life
             </h1>
             <p className="mt-6 text-lg text-card">
-              Working out and eating healthy can improve your physical and
-              mental well-being. Regular exercise can help you lose weight,
-              build muscle, and reduce your risk of chronic diseases such as
-              heart disease, diabetes, and certain cancers. Eating a balanced
-              diet can provide your body with the nutrients it needs to function
-              properly and can also aid in weight loss and overall health.
+              WorkoutTrack is the ultimate workout and calorie tracking app. It
+              will track your workouts, recommend new weights and exercises to
+              keep you progressing in the gym. It will give you calorie and
+              macro nutrient targets to help you get in the best shape of your
+              life. Already a pro and just want a single place to track your
+              progress? Build your own custom workouts and set custom macro
+              targets and let us do the rest.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
               <AppStoreLink />
@@ -49,5 +50,5 @@ export function Hero() {
         </div>
       </Container>
     </div>
-  )
+  );
 }

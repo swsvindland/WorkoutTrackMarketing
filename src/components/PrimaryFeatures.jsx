@@ -1,19 +1,19 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
-import { Tab } from '@headlessui/react'
-import clsx from 'clsx'
-import { AnimatePresence, motion } from 'framer-motion'
-import { useDebouncedCallback } from 'use-debounce'
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { Tab } from '@headlessui/react';
+import clsx from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useDebouncedCallback } from 'use-debounce';
 
-import { AppScreen } from '@/components/AppScreen'
-import { Container } from '@/components/Container'
-import { PhoneFrame } from '@/components/PhoneFrame'
-import WorkoutScreen from '@/images/screens/workout.png'
-import EatScreen from '@/images/screens/eat.png'
-import SupplementScreen from '@/images/screens/supplements.png'
-import BodyScreen from '@/images/screens/body.png'
-import Image from 'next/image'
+import { AppScreen } from '@/components/AppScreen';
+import { Container } from '@/components/Container';
+import { PhoneFrame } from '@/components/PhoneFrame';
+import WorkoutScreen from '@/images/screens/workout.png';
+import EatScreen from '@/images/screens/eat.png';
+import SupplementScreen from '@/images/screens/supplements.png';
+import BodyScreen from '@/images/screens/body.png';
+import Image from 'next/image';
 
-const MotionAppScreenBody = motion(AppScreen.Body)
+const MotionAppScreenBody = motion(AppScreen.Body);
 
 const features = [
   {
@@ -40,15 +40,9 @@ const features = [
       'Record your weight, blood pressure, and body measurements. We’ll track your progress and help you reach your goals. Get body fat estimates based off the US Navy method, so you can see how your body is changing even if your weight is not. Also Premium users can upload progress photos to see how they are improving.',
     screen: BodyMotionScreen,
   },
-]
+];
 
-const headerAnimation = {
-  initial: { opacity: 0, transition: { duration: 0.3 } },
-  animate: { opacity: 1, transition: { duration: 0.3, delay: 0.3 } },
-  exit: { opacity: 0, transition: { duration: 0.3 } },
-}
-
-const maxZIndex = 2147483647
+const maxZIndex = 2147483647;
 
 const bodyVariantBackwards = {
   opacity: 0.4,
@@ -56,13 +50,13 @@ const bodyVariantBackwards = {
   zIndex: 0,
   filter: 'blur(4px)',
   transition: { duration: 0.4 },
-}
+};
 
 const bodyVariantForwards = (custom) => ({
   y: '100%',
   zIndex: maxZIndex - custom.changeCount,
   transition: { duration: 0.4 },
-})
+});
 
 const bodyAnimation = {
   initial: 'initial',
@@ -82,7 +76,7 @@ const bodyAnimation = {
     exit: (custom) =>
       custom.isForwards ? bodyVariantBackwards : bodyVariantForwards(custom),
   },
-}
+};
 
 function WorkoutMotionScreen({ custom, animated = false }) {
   return (
@@ -91,7 +85,7 @@ function WorkoutMotionScreen({ custom, animated = false }) {
         <Image src={WorkoutScreen} alt="" />
       </MotionAppScreenBody>
     </AppScreen>
-  )
+  );
 }
 
 function EatMotionScreen({ custom, animated = false }) {
@@ -101,7 +95,7 @@ function EatMotionScreen({ custom, animated = false }) {
         <Image src={EatScreen} alt="" />
       </MotionAppScreenBody>
     </AppScreen>
-  )
+  );
 }
 
 function SupplementMotionScreen({ custom, animated = false }) {
@@ -111,7 +105,7 @@ function SupplementMotionScreen({ custom, animated = false }) {
         <Image src={SupplementScreen} alt="" />
       </MotionAppScreenBody>
     </AppScreen>
-  )
+  );
 }
 
 function BodyMotionScreen({ custom, animated = false }) {
@@ -121,33 +115,33 @@ function BodyMotionScreen({ custom, animated = false }) {
         <Image src={BodyScreen} alt="" />
       </MotionAppScreenBody>
     </AppScreen>
-  )
+  );
 }
 
 function usePrevious(value) {
-  let ref = useRef()
+  let ref = useRef();
 
   useEffect(() => {
-    ref.current = value
-  }, [value])
+    ref.current = value;
+  }, [value]);
 
-  return ref.current
+  return ref.current;
 }
 
 function FeaturesDesktop() {
-  let [changeCount, setChangeCount] = useState(0)
-  let [selectedIndex, setSelectedIndex] = useState(0)
-  let prevIndex = usePrevious(selectedIndex)
-  let isForwards = prevIndex === undefined ? true : selectedIndex > prevIndex
+  let [changeCount, setChangeCount] = useState(0);
+  let [selectedIndex, setSelectedIndex] = useState(0);
+  let prevIndex = usePrevious(selectedIndex);
+  let isForwards = prevIndex === undefined ? true : selectedIndex > prevIndex;
 
   let onChange = useDebouncedCallback(
     (selectedIndex) => {
-      setSelectedIndex(selectedIndex)
-      setChangeCount((changeCount) => changeCount + 1)
+      setSelectedIndex(selectedIndex);
+      setChangeCount((changeCount) => changeCount + 1);
     },
     100,
     { leading: true }
-  )
+  );
 
   return (
     <Tab.Group
@@ -208,21 +202,21 @@ function FeaturesDesktop() {
         </PhoneFrame>
       </div>
     </Tab.Group>
-  )
+  );
 }
 
 function FeaturesMobile() {
-  let [activeIndex, setActiveIndex] = useState(0)
-  let slideContainerRef = useRef()
-  let slideRefs = useRef([])
+  let [activeIndex, setActiveIndex] = useState(0);
+  let slideContainerRef = useRef();
+  let slideRefs = useRef([]);
 
   useEffect(() => {
     let observer = new window.IntersectionObserver(
       (entries) => {
         for (let entry of entries) {
           if (entry.isIntersecting) {
-            setActiveIndex(slideRefs.current.indexOf(entry.target))
-            break
+            setActiveIndex(slideRefs.current.indexOf(entry.target));
+            break;
           }
         }
       },
@@ -230,18 +224,18 @@ function FeaturesMobile() {
         root: slideContainerRef.current,
         threshold: 0.6,
       }
-    )
+    );
 
     for (let slide of slideRefs.current) {
       if (slide) {
-        observer.observe(slide)
+        observer.observe(slide);
       }
     }
 
     return () => {
-      observer.disconnect()
-    }
-  }, [slideContainerRef, slideRefs])
+      observer.disconnect();
+    };
+  }, [slideContainerRef, slideRefs]);
 
   return (
     <>
@@ -287,7 +281,7 @@ function FeaturesMobile() {
               slideRefs.current[featureIndex].scrollIntoView({
                 block: 'nearest',
                 inline: 'nearest',
-              })
+              });
             }}
           >
             <span className="absolute -inset-x-1.5 -inset-y-3" />
@@ -295,7 +289,7 @@ function FeaturesMobile() {
         ))}
       </div>
     </>
-  )
+  );
 }
 
 export function PrimaryFeatures() {
@@ -324,5 +318,5 @@ export function PrimaryFeatures() {
         <FeaturesDesktop />
       </Container>
     </section>
-  )
+  );
 }
