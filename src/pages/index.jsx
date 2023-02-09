@@ -6,6 +6,7 @@ import { Hero } from '@/components/Hero';
 import { Pricing } from '@/components/Pricing';
 import { PrimaryFeatures } from '@/components/PrimaryFeatures';
 import { install, gtag } from 'ga-gtag';
+import { FAQs } from '@/components/FAQs';
 
 export default function Home() {
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function Home() {
         <Hero />
         <PrimaryFeatures />
         <Pricing />
+        <FAQs />
       </main>
       <Footer />
     </>
