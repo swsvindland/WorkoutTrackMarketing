@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { RadioGroup } from '@headlessui/react'
-import clsx from 'clsx'
-import { Container } from '@/components/Container'
+import { useState } from 'react';
+import { RadioGroup } from '@headlessui/react';
+import clsx from 'clsx';
+import { Container } from '@/components/Container';
 
 const plans = [
   {
@@ -31,9 +31,10 @@ const plans = [
       'Supplement Tracking',
       'Record weight, body measurements, and blood pressure',
       'Upload Progress Photos',
+      'Substitute Exercises',
     ],
   },
-]
+];
 
 function CheckIcon(props) {
   return (
@@ -53,7 +54,7 @@ function CheckIcon(props) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
 function Plan({
@@ -146,11 +147,11 @@ function Plan({
         </ul>
       </div>
     </section>
-  )
+  );
 }
 
 export function Pricing() {
-  let [activePeriod, setActivePeriod] = useState('Monthly')
+  let [activePeriod, setActivePeriod] = useState('Monthly');
 
   return (
     <section
@@ -220,5 +221,5 @@ export function Pricing() {
         </div>
       </Container>
     </section>
-  )
+  );
 }
