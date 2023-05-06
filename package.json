@@ -1,5 +1,5 @@
 {
-  "name": "tailwindui-pocket",
+  "name": "workout-track-marketing",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,7 +20,7 @@
     "focus-visible": "^5.2.0",
     "framer-motion": "^6.5.1",
     "ga-gtag": "^1.1.7",
-    "next": "13.4.0",
+    "next": "13.3.4",
     "postcss-focus-visible": "^6.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
