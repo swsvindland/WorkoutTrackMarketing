@@ -1,16 +1,12 @@
 import clsx from 'clsx';
-import { getAnalytics, logEvent } from 'firebase/analytics';
-import { gtag } from 'ga-gtag';
+import va from '@vercel/analytics';
 
 export function GooglePlayLink({ color = 'black' }) {
   return (
     <button
       aria-label="Download on the Google Play Store"
       onClick={() => {
-        logEvent(getAnalytics(), 'google_play_link_clicked');
-        gtag('event', 'conversion', {
-          send_to: 'AW-11043651276/TdWACLKqooUYEMz9gpIp',
-        });
+          va.track('google-play-link-clicked')
         window.open(
           'https://play.google.com/store/apps/details?id=com.svindland.fitness',
           '_blank'

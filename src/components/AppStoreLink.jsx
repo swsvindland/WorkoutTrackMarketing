@@ -1,16 +1,12 @@
 import clsx from 'clsx';
-import { getAnalytics, logEvent } from 'firebase/analytics';
-import { gtag } from 'ga-gtag';
+import va from "@vercel/analytics";
 
 export function AppStoreLink({ color = 'black' }) {
   return (
     <button
       onClick={() => {
-        logEvent(getAnalytics(), 'apple_app_store_click');
-        gtag('event', 'conversion', {
-          send_to: 'AW-11043651276/TdWACLKqooUYEMz9gpIp',
-        });
-        window.open(
+          va.track('apple-app-store-link-clicked')
+          window.open(
           'https://apps.apple.com/us/app/workouttrack-calorie-counter/id6443969488',
           '_blank'
         );
