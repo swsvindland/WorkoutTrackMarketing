@@ -2,8 +2,9 @@ import Head from 'next/head';
 import React from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import Contact from "@/components/Contact";
 
-export default function Contact() {
+export default function ContactPage() {
     return (
         <>
             <Head>
@@ -14,8 +15,10 @@ export default function Contact() {
                 />
             </Head>
             <Header />
-            <main className="container">
-                <h2 className="text-2xl">Privacy Policy</h2>
+            <main className="w-full flex justify-center">
+                <div className="container">
+                <Contact />
+                </div>
             </main>
             <Footer />
         </>

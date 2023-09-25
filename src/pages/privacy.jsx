@@ -14,7 +14,8 @@ export default function Privacy() {
         />
       </Head>
       <Header />
-      <main className="container">
+      <main className="w-full flex justify-center">
+        <div className="container">
         <h2 className="text-2xl">Privacy Policy</h2>
         <p>
           Samuel Svindland built his apps, WaterTrack; BodyTrack; PeriodTrack;
@@ -178,6 +179,7 @@ export default function Privacy() {
             App Privacy Policy Generator
           </a>
         </p>
+        </div>
       </main>
       <Footer />
     </>

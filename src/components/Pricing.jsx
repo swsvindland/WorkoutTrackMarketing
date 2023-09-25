@@ -47,7 +47,7 @@ const plans = [
       "Customized meal plans",
       "Weekly check-ins",
     ],
-    link: '/contact',
+    // link: '/contact',
   },
 ];
 
