@@ -14,7 +14,7 @@ export default function Terms() {
         />
       </Head>
       <Header />
-      <main className="p-4">
+      <main className="container">
         <h2 className="text-2xl">Terms &amp; Conditions</h2>
         <p>
           By downloading or using any of my apps, BodyTrack; WaterTrack;

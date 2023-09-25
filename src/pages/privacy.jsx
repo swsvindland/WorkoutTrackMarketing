@@ -14,7 +14,7 @@ export default function Privacy() {
         />
       </Head>
       <Header />
-      <main className="p-4">
+      <main className="container">
         <h2 className="text-2xl">Privacy Policy</h2>
         <p>
           Samuel Svindland built his apps, WaterTrack; BodyTrack; PeriodTrack;
