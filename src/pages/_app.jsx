@@ -1,7 +1,7 @@
 import '@/styles/tailwind.css';
 import 'focus-visible';
-import { Oswald } from '@next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import {Oswald} from "next/font/google";
 
 const oswald = Oswald({
   subsets: ['latin'],
