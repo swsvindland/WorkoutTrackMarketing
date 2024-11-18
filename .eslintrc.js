@@ -1,0 +1,9 @@
+module.exports = {
+    extends: 'next/core-web-vitals',
+    plugins: [
+        'eslint-plugin-react-compiler',
+    ],
+    rules: {
+        'react-compiler/react-compiler': 'error',
+    },
+}
