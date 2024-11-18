@@ -226,7 +226,7 @@ export function Pricing() {
                     <div
                         key={period}
                         className={clsx(
-                            'py-2 text-center text-sm font-semibold text-secondary [&:not(:focus-visible)]:focus:outline-none',
+                            'py-2 text-center text-sm font-semibold text-gray-50 [&:not(:focus-visible)]:focus:outline-none',
                             period === 'Annually' && '-ml-px'
                         )}
                     >
